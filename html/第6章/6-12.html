@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'可是你也不是一点错也没有啊。',
+'不过我知道你害怕了。',
+'你看，咱俩都沦落到谷底了，没必要吵架了。',
+'我还能继续，我能让我们都沉到地心去。',
+'那有什么意义？',
+'我们一起，从这里爬出去吧。',
+'一起？',
+'我感觉你其实不需要我。',
+'如果你希望我走开，我会努力的。',
+'我可没那么想，我现在比任何时候都需要你的帮助。',
+'求你了，我们齐心协力度过难关吧。',
+'齐心协力？你开玩笑吧？',
+'害怕没什么错，伤不是你要去忍耐的东西，痛是要说出来的。',
+'……',
+'哼，好吧。你赢了。'
+]
+let c=['Madeline','Madeline','Madeline','Dark','Madeline','Madeline','Dark','Dark','Dark','Madeline','Madeline','Dark','Madeline','Dark','Dark']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第12节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/shangu2.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/雪花之盾.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_normal.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../achievements/6.html'">达成成就</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

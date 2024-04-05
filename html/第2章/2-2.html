@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'喂，你好？',
+'Madeline？这是公共电话？',
+'是的。等等…你居然接我电话了。',
+'什么？',
+'没关系，我遇到了麻烦……有人在追我。',
+'我还有点懵，但我知道现在很危险。',
+'Madeline，你只有在半夜惊慌失措的时候才会给我打电话。',
+'你不必为了引起我的注意而编造一些愚蠢的故事。',
+'我才没有编造！你总是这样！',
+'小点声，是是是，冷静下来。',
+'很抱歉，我的宝贝，给我说说怎么了。',
+'我正在攀登塞莱斯特山，我找到了一面古老的镜子，然后它碎了，但出现了另一个我……',
+'我到底是不是在做梦？',
+'Madeline，你当然在做梦。',
+'我已经几个月没跟你说话了，现在我怎么又开始理你了？',
+'呃，为什么我要来爬这破山？！',
+'（Dark Madeline突然出现）',
+'对于这个问题，我也感到很疑惑。是时候放弃，跟我回家了。',
+'（Dark Madeline变成巨兽吞噬了Madeline和电话棚）',
+
+'（Madeline梦醒 发现自己在篝火旁睡了一觉）',
+'啊，原来是梦。',
+'继续走吧。'
+]
+let c=['Madeline','？？？','Madeline','？？？','Madeline','Madeline','？？？','？？？','Madeline','？？？','？？？','Madeline','Madeline','？？？','？？？','Madeline','','Dark','','','Madeline','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character4",'../../images/人物/dm/ma2_angry.png',0);
+        changeCharacter(present,9,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,17,"character4",'../../images/人物/dm/ma2_angry.png',1);
+        changeCharacter(present,20,"character4",'../../images/人物/dm/ma2_angry.png',0);
+
+        changeBackground(present,20,'../../images/背景重制版/fire.png');
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第二章 第2节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/telephone.png");background-size: cover;}
+    </style>
+</head>
+
+    <body onclick="run();msplay()" onpageshow="chapInit();run()" >
+        <audio id="bgm" src="../../BGM/驱散乌云.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_question.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_angry.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../achievements/1.html'">达成成就</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

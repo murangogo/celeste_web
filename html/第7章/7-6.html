@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'你怎么又开始了？！',
+'我跟你道过歉了，你怎么还是这样！',
+'哼，我就知道，你不是真心想求和的。',
+'收一收你的犟脾气吧，没人会喜欢你的。',
+'没人喜欢……',
+'我看也没人喜欢你！',
+'你凭什么高高在上地指责我?',
+'我就是你，好吗？',
+'好，我就当你承认自己的一事无成。',
+'我本来准备好多要和你说的话……',
+'现在我可没这个兴趣了。',
+'这辈子我都不想再见到你！',
+'滚开！',
+'哈哈，你输了，Madeline。',
+'你想甩开我？',
+'别忘了，我就是你的一部分。',
+'哈哈，一起毁灭吧，Madeline！',
+'（Dark Madeline吞噬了Madeline）'
+]
+let c=['Madeline','Madeline','Dark','Madeline','Dark','Dark','Dark','Dark','Dark','Madeline','Madeline','Madeline','Madeline','Dark','Dark','Dark','Dark','']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,9,"character1",'../../images/人物/ma/ma_angry.png',1);
+
+        changeCharacter(present,5,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第七章 第6节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/shangu2.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/终焉.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_surprise.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_angry.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../achievements/5.html'">结局：痛觉残留</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

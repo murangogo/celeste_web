@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'Madeline！',
+'Theo！你还好吗？',
+'我还好。',
+'空中缆车！我一直想坐这样的缆车。',
+'它看起来很老旧了，但也许还能用。',
+'你觉得这个东西安全吗？',
+'肯定没问题。',
+'最后跟Oshiro的事情是怎么收尾的？',
+'你说得对，我不应该尝试帮助他。',
+'我也不喜欢那样说话，但……',
+'好了好了……',
+'我当时应该听你的。',
+'还好你平安无事地出来了。',
+'这里空气好稀薄啊，我几乎无法呼吸了。',
+'四周都是白茫茫的，我们现在在多高的地方？',
+'"哐啷！"'
+]
+let c=['？？？','Madeline','Theo','Theo','Theo','Madeline','Theo','Theo','Madeline','Theo','Madeline','Madeline','Theo','Madeline','Madeline','']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,5,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,14,"character1",'../../images/人物/ma/ma_sad.png',1);
+
+        changeCharacter(present,3,"character3",'../../images/人物/th/th_normal2.png',1);
+        changeCharacter(present,14,"character3",'../../images/人物/th/th_hand_surprise.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第四章 第2节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/lanche.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/熟闻的旋律.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/th/th_hand_smile.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第4章/4-3.html'">继续</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'Theo，你醒了！',
+'我醒了？',
+'啊……我做了一个乱糟糟的噩梦……',
+'噢，现在我全想起来了。',
+'那不是梦，是真实发生过的。',
+'感谢你带我逃出了那里。',
+'幸亏我们是一起进去的，如果只有我一个人就不好说了。',
+'这里到底发生了什么？很明显这山不正常。',
+'我应该早点告诉你的。',
+'回到古老遗迹后，另一个我从镜子中逃了出来。',
+'我并不喜欢的那个我……我还梦到过她。',
+'你认为这山让她真的出现了？',
+'是的。',
+'她像幽灵一样一直萦绕在我身边。',
+'还无情地贬低了Oshiro先生和他爱的山庄。',
+'我想可能就是她让空中缆车失控的。',
+'现在，她就在那个庙里面。',
+'……',
+'你怎么什么都没说呢？',
+'如果知道这座山的力量，我是一定不会进入古庙的。',
+'我试过阻止你。',
+'你可以告诉我你的邪恶分身跑掉了。',
+'得了吧。',
+'当时告诉你，你会信吗？',
+'我自己都不信。',
+'好吧，我知道了。',
+'不过，下一次跟我直说就好了。',
+'我肯定相信你。',
+'你为什么那么轻易就相信我？',
+'你跟我也不太熟啊。',
+'要我说实话吗，你让我想起了我姐姐。',
+'她是怎样的人啊？',
+'啊，我猜你一定会喜欢她的！',
+'说实话，你们一开始可能会合不来……',
+'但最终你会喜欢她的。',
+'Alex不管做什么事都非常出色。',
+'她正在进修成为民权律师。',
+'哇！那你怎么会因为我想到她呢？',
+'你们都沉溺于自己头脑中的小天地里。',
+'Alex很清楚该朝什么方向前进。',
+'显然，她一定会达成自己的目标。',
+'我能看出来，你也有这种特质。',
+'你一门心思一定要爬这座山。',
+'而且你都不知道为什么要爬。',
+'这就是Alex的作风啊。',
+'……',
+'哈哈，我开玩笑呢。',
+'你到底为什么要爬这山？'
+]
+let c=['Madeline','Theo','Theo','Theo','Theo','Theo','Madeline','Theo','Madeline','Madeline','Madeline','Theo','Madeline','Madeline','Madeline','Madeline','Madeline','Theo','Theo','Theo','Madeline','Theo','Madeline','Madeline','Madeline','Theo','Theo','Theo','Madeline','Madeline','Theo','Madeline','Theo','Theo','Theo','Theo','Theo','Madeline','Theo','Theo','Theo','Theo','Theo','Theo','Theo','Madeline','Theo','Theo']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,9,"character1",'../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,23,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,29,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,46,"character1",'../../images/人物/ma/ma_angry.png',1);
+
+        changeCharacter(present,5,"character3",'../../images/人物/th/th_hand_smile.png',1);
+        changeCharacter(present,12,"character3",'../../images/人物/th/th_hand_surprise.png',1);
+        changeCharacter(present,18,"character3",'../../images/人物/th/th_hand_surprise3.png',1);
+        changeCharacter(present,26,"character3",'../../images/人物/th/th_normal.png',1);
+        changeCharacter(present,33,"character3",'../../images/人物/th/th_hand_think.png',1);
+        changeCharacter(present,40,"character3",'../../images/人物/th/th_normal.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/fire.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run();g1init(1,'')" >
+    <audio id="bgm" src="../../BGM/残焰.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_surprise.png" id="character1"  width="45%">
+        <embed src="../../images/人物/th/th_hand_surprise4.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='choice1/choice1.html'">继续</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

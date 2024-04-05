@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'"山庄工作人员请注意："',
+'"遗憾地通知你，由于现状超出了我们的控制，天空度假山庄将在这个季度后无限期关闭。"',
+'"我很荣幸与你们所有人共事，我们曾共同努力工作，为客人提供最舒适和难忘的经历。"',
+'"我怀着沉重的心情写下这些内容。"',
+'"这个山庄已经成为我的家，山庄的员工和老主顾都是我的家人。"',
+'"我将深深地怀念你们。"',
+'"--oshiro先生"',
+'这个先生真古怪……'
+]
+let c=['泛黄的通告','泛黄的通告','泛黄的通告','泛黄的通告','泛黄的通告','泛黄的通告','泛黄的通告','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character1",'../../images/人物/ma/ma_sad.png',0);
+        changeCharacter(present,7,"character1",'../../images/人物/ma/ma_question.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第三章 第2节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/groceyroom.png");background-size: cover;}
+    </style>
+</head>
+
+        <body onclick="run();msplay()" onpageshow="chapInit();run()" >
+            <audio id="bgm" src="../../BGM/Morgan.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/图标/letter.png" id="paper1"  width="45%">
+        <embed src="../../images/人物/ma/ma_question.png" id="character1"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第3章/3-3.html'">继续</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

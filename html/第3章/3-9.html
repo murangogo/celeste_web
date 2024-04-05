@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'(现在是你最后的机会了，Oshiro，不要失去她。)',
+'(让一个客人清扫杂物？她不会留下来的。)',
+'(不，她还在这里就还有机会。)',
+'(总统套房一定会吸引她的。)',
+'(沉着冷静，Oshiro。)',
+'我们到了，一流的总统套房，多么质朴、奢华且完美！',
+'我就不打扰了，你尽情地享受其中的富丽堂皇吧。',
+'的确很漂亮。',
+'家具看起来很贵……非常宽敞，颜色也很高雅。',
+'你肯定花了很多心思在里面。',
+'我就知道你会喜欢这里。',
+'是的。',
+'所以我能从这里上到屋顶吗？',
+'(Oshiro你个蠢货，你将失去她了。)',
+'啊，我差点忘了说。',
+'像您这样的尊贵客人可以享受半价入住总统套房。',
+'我……不想留在这里。',
+'拜托女士，留下来吧。',
+'先生，我在赶路。',
+'忘掉这个失败者，Madeline。',
+'接受现实吧。这个度假山庄就是一个垃圾场。',
+'没人会愿意留在这里，必须有人说出这个事实。',
+'抱歉，oshiro先生，她不是那个意思...',
+'我……我很忙。',
+'你走吧，请自便，Madeline女士。',
+'走吧，Madeline，你听到他说什么了。',
+'要是没有我，你可怎么办？',
+'（为什么他说我漂亮山庄像垃圾场？）',
+'（她怎么敢如此侮辱你？）',
+'（万一她是对的呢？）',
+'（她当然是对的，没有她的帮助，你都不会清扫杂物。）',
+'（她只想提供帮助。）',
+'（但是为什么她这么无情，她怎么敢如此侮辱你？）',
+'（万一她是对的呢？）',
+'（她当然是对的……）',
+'我原以为我们摆脱不了他了。',
+'你欠我一个人情，我会记下来的。',
+'离我远点！',
+'我以为你登山的信念很坚定呢，现在怎么突然变成了那个怪人的治疗师？',
+'你为什么不走开？',
+'女士，在你走之前，我要问一个问题。',
+'为什么你对我这么好，但还是要离开？',
+'我做错了什么啊？',
+'别再纠结了，你还不懂吗？',
+'她只是在用她那扭曲的自我意识怜悯你。',
+'她从不在意你。',
+'闭嘴，我只是想帮忙。',
+'看样子你们两个都很可悲。',
+'我已经决定关闭山庄进行维修。二楼的管道系统在漏水，图书馆杂乱不堪，更不要说总统套房天花板上的洞了……',
+'请让我一个人待一会儿……'
+]
+let c=['Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Madeline','Madeline','Madeline','Oshiro','Madeline','Madeline','Oshiro','Oshiro','Oshiro','Madeline','Oshiro','Madeline','Dark','Dark','Dark','Madeline','Oshiro','Oshiro','Dark','Dark','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Oshiro','Dark','Dark','Madeline','Dark','Madeline','Oshiro','Oshiro','Oshiro','Dark','Dark','Dark','Madeline','Dark','Oshiro','Oshiro']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character1",'../../images/人物/ma/ma_sad.png',0);
+        changeCharacter(present,5,"character1",'../../images/人物/ma/ma_normal.png',1);
+        changeCharacter(present,12,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,22,"character1",'../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,35,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,46,"character1",'../../images/人物/ma/ma_angry.png',1);
+
+        changeCharacter(present,5,"character2",'../../images/人物/os/os_smile3.png',1);
+        changeCharacter(present,14,"character2",'../../images/人物/os/os_angry.png',1);
+        changeCharacter(present,15,"character2",'../../images/人物/os/os_smile3.png',1);
+        changeCharacter(present,19,"character2",'../../images/人物/os/os_sad.png',0);
+        changeCharacter(present,22,"character2",'../../images/人物/os/os_scary.png',1);
+        changeCharacter(present,25,"character2",'../../images/人物/os/os_scary.png',0);
+        changeCharacter(present,27,"character2",'../../images/人物/os/os_scary2.png',1);
+        changeCharacter(present,35,"character2",'../../images/人物/os/os_scary2.png',0);
+        changeCharacter(present,40,"character2",'../../images/人物/os/os_sad.png',1);
+        changeCharacter(present,43,"character2",'../../images/人物/os/os_sad.png',0);
+        changeCharacter(present,46,"character2",'../../images/人物/os/os_scary.png',1);
+
+        changeCharacter(present,0,"character4",'../../images/人物/dm/ma2_angry2.png',0);
+        changeCharacter(present,19,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+        changeCharacter(present,22,"character4",'../../images/人物/dm/ma2_angry2.png',0);
+        changeCharacter(present,25,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+        changeCharacter(present,27,"character4",'../../images/人物/dm/ma2_angry2.png',0);
+        changeCharacter(present,35,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+        changeCharacter(present,40,"character4",'../../images/人物/dm/ma2_angry2.png',0);
+        changeCharacter(present,43,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+        changeCharacter(present,46,"character4",'../../images/人物/dm/ma2_angry2.png',0);
+
+        changeBackground(present,35,'../../images/背景/hotel_park_night.jpg');
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第三章 第9节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/总统套房2.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/幻灵都市.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/os/os_normal.png" id="character2"  width="45%">
+        <embed src="../../images/人物/dm/ma2_angry.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第4章/4-1.html'">第四章 黄金山脊</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

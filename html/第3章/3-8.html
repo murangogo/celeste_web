@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'嘿Theo！你也住在这里吗？',
+'嗨，竟然在这里见到你！',
+'你跟Oshiro先生聊过吗？我想他可能需要一些帮助。',
+'我觉得他就是个诡异的老怪物。估计在我们说话的时候，他正在清扫一个角落来隐藏我们的尸体。',
+'我要爬过这个通风孔，它一直往房子里面吹冷气。',
+'快跟上！',
+'Oshiro先生不太友好，但他没想要伤害我们。',
+'你的想法有点天真。',
+'我们需要离开这里，我俩还应付不来。',
+'我能理解他，你先出去，我随后赶上你。',
+'啊，你比我想的还固执……照顾好你自己吧。',
+'谢谢你，我等下在外面跟你碰头。'
+]
+let c=['Madeline','Theo','Madeline','Theo','Theo','Theo','Madeline','Theo','Theo','Madeline','Theo','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,3,"character1",'../../images/人物/ma/ma_question.png',1);
+
+        changeCharacter(present,4,"character3",'../../images/人物/th/th_hand_surprise.png',1);
+        changeCharacter(present,11,"character3",'../../images/人物/th/th_hand_surprise3.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第三章 第8节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景/internel2_light.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/人理之光.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_smile.png" id="character1"  width="45%">
+        <embed src="../../images/人物/th/th_hand_smile.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第3章/3-9.html'">参观总统套房</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

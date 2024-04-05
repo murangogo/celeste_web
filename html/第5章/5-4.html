@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'我的头好晕……',
+'怎么又是你！',
+'我警告过你的。',
+'你还不懂吗？是这座山给予了我这副躯壳。',
+'但我可不是你混乱脑袋里的唯一的念头。',
+'不喜欢你看到的吗？真令人惊讶呢。',
+'闭嘴！',
+'这座庙只是放大了这山的力量，你在这里受到控制，而我没有。',
+'我无法相信你，如果你是另一个我，为什么你还要想伤害我？',
+'可怜的Madeline，总是受到伤害的那一个。',
+'我一直都在照顾你，而你却因此而怨恨我。',
+'你还真是没用啊。',
+'如果你真的想保护我，为什么不解释一下发生了什么？',
+'就好像你想听似的……你从来没有给我机会。',
+'那你能帮我离开这里吗？',
+'呵，我为什么要帮你？',
+'现在还觉得你能征服这座山吗？',
+'闭嘴！我不需要你的帮助，我一个人也可以。',
+]
+let c=['Madeline','Madeline','Dark','Dark','Dark','Dark','Madeline','Dark','Madeline','Dark','Dark','Dark','Madeline','Dark','Madeline','Dark','Dark','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,2,"character1",'../../images/人物/ma/ma_surprise.png',1);
+        changeCharacter(present,6,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,12,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,16,"character1",'../../images/人物/ma/ma_angry.png',1);
+
+        changeCharacter(present,0,"character4",'../../images/人物/dm/ma2_angry.png',0);
+        changeCharacter(present,2,"character4",'../../images/人物/dm/ma2_angry.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第五章 第4节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/mirror_broken.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/异端之夜.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_angry.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第5章/5-5.html'">摆脱她</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

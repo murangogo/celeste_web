@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'极光真是太美了。',
+'是的……很漂亮……',
+'我们需要谈谈。',
+'……好。',
+'我终于弄明白你的身份了。',
+'你并不是我的真实幻像。',
+'……我不是吗？',
+'你刻薄、妄想、充满控制欲。',
+'你是我需要放下的一切。',
+'你为什么要说那种话？',
+'没关系，我现在明白了。',
+'我不再需要你了。',
+'所以，你这是要……抛弃我？',
+'我是要放你离开。',
+'我们都会变得更快乐。',
+'你可真……真傻啊。',
+'你以为你可以就这么抛下我吗？',
+'你以为你可以把一切的罪过都推到我头上吗？',
+'你以为自己比我强？',
+'回答我！',
+'冷静冷静，拜托……',
+'冷静？',
+'用力呼吸，Madeline。',
+'用上Theo教的方法，集中意念。',
+]
+let c=['Madeline','Dark','Madeline','Dark','Madeline','Madeline','Dark','Madeline','Madeline','Dark','Madeline','Madeline','Dark','Madeline','Madeline','Dark','Dark','Dark','Dark','Dark','Madeline','Dark','Madeline','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,7,"character1",'../../images/人物/ma/ma_question.png',1);
+
+        changeCharacter(present,6,"character4",'../../images/人物/dm/ma2_normal.png',1);
+        changeCharacter(present,12,"character4",'../../images/人物/dm/ma2_angry.png',1);
+        changeCharacter(present,16,"character4",'../../images/人物/dm/ma2_angry2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第7节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/极光1.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/其命题.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_normal3.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='6-8.html'">控制Dark Madeline</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

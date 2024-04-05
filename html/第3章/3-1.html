@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'欢迎光临！',
+'我是这座山庄的老板Oshiro，很高兴为您服务。',
+'（一天中来了两位客人！生意终于开始好转了！）',
+'您准备住多长时间？',
+'噢……我就是路过。',
+'我要去登山，这里有后门吗？',
+'……后门？',
+'（只是路过？这可不行。）',
+'你知不知道，我还能听到你说话……',
+'……',
+'抱歉，我们的后门仅供山庄工作人员使用。',
+'但是，我们的顶楼总统套房可以看到山顶，风景迷人，住在那里相当舒服。',
+'也许我能从那里上到屋顶，然后向下爬到后门？',
+'（总统套房，好主意，Oshiro!）',
+'您叫什么名字，我登记一下。',
+'我叫Madeline。',
+'但是，再说一遍，我真的没想在这里住下来。',
+'这边走，Madeline女士。',
+'这座山庄看起来好破败……它真的还在正常营业吗？',
+'我们当然在正常营业！天空度假山庄在旅游旺季可是24小时不打烊的！',
+'（看起来好破败？她这么说是什么意思？）',
+'（路过杂货间，看见纸张）'
+]
+let c=['Oshiro','Oshiro','Oshiro','Oshiro','Madeline','Madeline','Oshiro','Oshiro','Madeline','Oshiro','Oshiro','Oshiro','Madeline','Oshiro','Oshiro','Madeline','Madeline','Oshiro','Madeline','Oshiro','Oshiro','']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,2,"character2",'../../images/人物/os/os_smile3.png',1);
+        changeCharacter(present,4,"character2",'../../images/人物/os/os_smile.png',1);
+
+        changeCharacter(present,6,"character2",'../../images/人物/os/os_sad.png',1);
+        changeCharacter(present,10,"character2",'../../images/人物/os/os_smile.png',1);
+        changeCharacter(present,14,"character2",'../../images/人物/os/os_smile3.png',1);
+        changeCharacter(present,15,"character2",'../../images/人物/os/os_smile.png',1);
+
+        changeCharacter(present,5,"character1",'../../images/人物/ma/ma_question.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第三章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/hotel_entrance_afternoon.jpg");background-size: cover;}
+    </style>
+</head>
+
+    <body onclick="run();msplay()" onpageshow="chapInit();run()" >
+        <audio id="bgm" src="../../BGM/熟闻的旋律.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/os/os_smile2.png" id="character2"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第3章/3-2.html'">进入杂货间查看</button>
+                        <button onclick="location='../第3章/3-3.html'">忽视</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

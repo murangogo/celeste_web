@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'（看到镜中的另一个自己）',
+'（镜子碎裂）',
+'Madeline。',
+'谁在说话？',
+'噢，别害怕，我只是你的旁观者。',
+'你是……我？',
+'我是另一个你。',
+'为什么另一个我看起来这么诡异？',
+'……',
+'抱歉，我没别的意思。',
+'算了。从你的脑海里逃出来真是件愉快的事情。',
+'但是，我想说，我们需要一个爱好，但是登山……',
+'我知道这听起来很疯狂，但我就是要登上这座山。',
+'你可以做很多事情，但你绝不应该是一个登山者。',
+'我凭什么听你的？',
+'我知道这不是你的特长，理智一点。',
+'你不知道你会遇到什么情况，你应付不来的。',
+'我就是想挑战自己。',
+'你是软弱的另一个我还是懒惰的另一个我？',
+'我是务实的另一个你。',
+'现在我要说服你放弃登山，然后我们一起回家。',
+'不行，我要找条路甩开她。'
+]
+let c=['镜子','镜子','？？？','Madeline','？？？','Madeline','Dark','Madeline','Dark','Madeline','Dark','Dark','Madeline','Dark','Madeline','Dark','Dark','Madeline','Madeline','Dark','Dark','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character4",'../../images/人物/dm/ma2_angry.png',0);
+        changeCharacter(present,4,"character1",'../../images/人物/ma/ma_surprise.png',1);
+        changeCharacter(present,4,"character4",'../../images/人物/dm/ma2_angry.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第二章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/mirror_broken.png");background-size: cover;}
+    </style>
+</head>
+
+    <body onclick="run();msplay()" onpageshow="chapInit();run()" >
+        <audio id="bgm" src="../../BGM/迷信之镇.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_question.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_angry.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../../minigames/躲避/index.html'">逃跑</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

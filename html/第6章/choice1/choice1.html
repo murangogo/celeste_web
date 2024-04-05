@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../css/game-css.css">
+    <script src='../../../js/game-js.js'></script>
+    <script>
+        function show() {
+            let arr = JSON.parse(localStorage['choice1'])
+            let cnt = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i][0] != '-1') cnt += 1
+            }
+            if (cnt == 0) {
+                let MyDiv = document.getElementById("buttons");
+                let button = document.createElement("button");
+                button.setAttribute("type", "button");
+                button.setAttribute("onclick", "location='../6-6.html'");
+                button.innerHTML = "解除心结";
+                MyDiv.appendChild(button);
+            } else {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i][0] != '-1') {
+                        let MyDiv = document.getElementById("buttons");
+                        let button = document.createElement("button");
+                        button.setAttribute("type", "button");
+                        button.setAttribute("onclick", `location='${arr[i][0]}'`);
+                        button.innerHTML = arr[i][1]
+                        MyDiv.appendChild(button);
+                    }
+                }
+            }
+        }
+    </script>
+    <title>choice1</title>
+    <style type="text/css">
+        #wrapper {background: url("../../../images/背景重制版/fire.png");background-size: cover;}
+    </style>
+</head>
+
+    <body onpageshow="show()" >
+
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../../save.html'">读档</button>
+                    <button onclick="location='../../achievement.html'">成就</button>
+                    <button onclick="location='../../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                <div id="buttons"></div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

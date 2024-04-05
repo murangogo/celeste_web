@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'你好，小旅行家！',
+'噢……你好。',
+'这个地方太疯狂了，我几乎不敢相信它居然真的存在！',
+'攀登起来不简单吧？但这正合我意。',
+'哇哦，你这话听起来真严肃。我很高兴在这荒凉的地方见到另一个人。',
+'自我介绍一下，我叫Theo，是一名来自遥远国度的探险家！',
+'……',
+'你不太爱说话？',
+'神秘的独行侠。',
+'抱歉，我是Madeline，我的脑子现在可能有点乱。',
+'好吧，Madeline，你来对地方了！',
+'虽然这地方看起来阴森森的，但这是我见过的最适合安静沉思的地方。',
+'可能吧……你来自哪个“遥远国度”？',
+'我来自于神秘且充满异域风情的……西雅图。',
+'这个国家听起来很有魅力。',
+'哈哈，欢迎你来西雅图玩。',
+'话说这地方真的很荒凉！为什么整个城市像是被抛弃了一样？',
+'我听新闻说某个大型企业开发了这块地盘，但没人愿意来住。',
+'为什么呢……好可惜啊，白白地建造这一切……',
+'至少我们还可以探索一些残垣断壁。',
+'你是来这里探索的吗？',
+'探索遗迹是我的一大爱好。我通常称自己为初露头角的摄影师。',
+'哇，听起来挺酷的！',
+'谢谢你啦，不过，提醒一下，这里的地形相当复杂，你是要往回走了吗？',
+'不，我要走到山顶。',
+'你说这句话的时候眼睛好像在放光，很让人振奋。',
+'哈哈是吗，你也能登上山顶的。',
+'也许吧……说实话，我并不太在意能不能登顶。',
+'噢！但是我听说在城市之上有一些真正的古老遗迹,比如源于19世纪的那些。',
+'有生之年我必须亲眼见到它们！！！'
+]
+let c=['？？？','Madeline','？？？','Madeline','？？？','Theo','Madeline','Theo','Theo','Madeline','Theo','Theo','Madeline','Theo','Madeline','Theo','Theo','Madeline','Madeline','Theo','Madeline','Theo','Madeline','Theo','Madeline','Theo','Madeline','Theo','Theo','Theo']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,7,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,12,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,23,"character1",'../../images/人物/ma/ma_normal.png',1);
+
+        changeCharacter(present,6,"character3",'../../images/人物/th/th_normal2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第一章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/tent.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/熟闻的旋律.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+    <div id="save">
+        <div></div>
+        <div>存档成功！</div>
+        <div id='save_button'>
+            <button type="button" onclick='promtdown()'>确定</button>
+        </div>
+    </div>
+
+    <embed src="../../images/人物/ma/ma_normal.png" id="character1" width="45%">
+    <embed src="../../images/人物/th/th_hand_normal3.png" id="character3" width="45%"> 
+
+    <div id="wrapper">
+
+            <button id='jump' onclick="jump()">跳过剧情...</button>
+
+            <div id="name"></div>
+            <div id="dialog"></div>
+
+            <div id="functions">
+                <button onclick=save()>存档</button>
+                <button onclick="location='../save.html'">读档</button>
+                <button onclick="location='../achievement.html'">成就</button>
+                <button onclick="location='../../index.html'">主页</button>
+            </div>
+
+        <div id="option">
+            <div class="blank"></div>
+                <div id="buttons">
+                    <button onclick="location='../第1章/1-2.html'">前行</button>
+                </div>
+            <div class="blank"></div>
+        </div>
+    </div>
+</body>
+</html>

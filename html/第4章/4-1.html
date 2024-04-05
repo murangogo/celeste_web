@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'没想到你还安然无恙！',
+'你是不是经过了山庄，遇到Oshiro先生了吗？',
+'是这样的，但他后来把我赶了出来。',
+'听起来是个有趣的故事。',
+'Oshiro是个迷失的灵魂。那个地方对他而言不仅仅是个山庄，别让他成为你的阴影。',
+'你知道我怎么想的吗？',
+'我觉得这座山让你们都疯了。',
+'HA HA HA，你不是第一个这么说的人。',
+'也许你是对的，我怎么知道自己是不是疯了？',
+'在我看来，山无法带走你内心的任何东西，但是只有疯狂的人，才能在这里快乐生活，明白吗？',
+'哦，别介意，我只是一个喜欢碎碎念的老太婆。',
+'你已经放弃了吗？我知道一条回到你车上的捷径。',
+'我要走到山顶。',
+'有时候很难说清楚固执与决然之间的区别。你让我想起了年轻时的我。',
+'祝你好运。',
+'你遇到的游客并不多，对吧？',
+'确实算不上多，但我不介意与世隔绝。',
+'有时我觉得我也应该与世隔绝。',
+'住在那个小屋子里面，你会寂寞吗？',
+'我有朋友。我是挺疯狂的，但我不是隐士。',
+'抱歉，我不是故意乱猜的。',
+'我稍微年轻一些的时候，也无法想象自己能在一个地方待这么长时间。',
+'但我后来发现了这座山。',
+'我当时就知道这里将是我的栖身之所。',
+'它有什么特殊的吗？',
+'这片大地上的大部分事情都是没有那么温情脉脉的。',
+'无论你是否做好接受的准备，山都会向你展示真实的你。',
+'它也能让我直面真实的自己。',
+'直面真实的自我？'
+]
+let c=['老婆婆','老婆婆','Madeline','老婆婆','老婆婆','Madeline','Madeline','老婆婆','老婆婆','老婆婆','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','Madeline','老婆婆','Madeline','老婆婆','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','老婆婆','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,6,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,20,"character1",'../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,25,"character1",'../../images/人物/ma/ma_question.png',1);
+
+        changeCharacter(present,8,"character2",'../../images/人物/gr/gr_smile.png',1);
+        changeCharacter(present,12,"character2",'../../images/人物/gr/gr_look.png',1);
+        changeCharacter(present,14,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第四章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/woodenhouse2.jpg");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/冬之记忆.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+        <embed src="../../images/人物/gr/gr_nomal2.png" id="character2"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第4章/4-2.html'">继续上路</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

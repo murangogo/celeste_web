@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'夫人，请问一下，前面的指示牌坏了…这是登山的路吗？',
+'快到了。穿过这座桥就是。',
+'顺便一提，您应该打电话让人来看看您的私家车道。因为山脊塌方，我差点就死在那儿了。',
+'HA HA HA，如果我的私家车道让你差点死掉，那这山对你来说可能太困难了。',
+'……如果像你一样的老人家都能在这里活下来，我觉得我也没问题。',
+'HA HA HA，随便你了。但我要告诉你，塞莱斯特山是个诡异的地方。你可能会看到一些东西，一些让你感到不可思议的东西。',
+'额，老人家，我觉得你应该寻求心理咨询。']
+let c= ['Madeline','老婆婆','Madeline','老婆婆','Madeline','老婆婆','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,3,"character2",'../../images/人物/gr/gr_angry.png',1);
+        changeCharacter(present,4,"character1",'../../images/人物/ma/ma_angry.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>序章</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/woodenhouse.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/君之祈愿.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+    <div id="save">
+        <div></div>
+        <div>存档成功！</div>
+        <div id='save_button'>
+            <button type="button" onclick='promtdown()'>确定</button>
+        </div>
+    </div>
+
+    <embed src="../../images/人物/ma/ma_normal.png" id="character1" width="45%">
+    <embed src="../../images/人物/gr/gr_nomal2.png" id="character2" width="45%"> 
+
+    <div id="wrapper">
+
+            <button id='jump' onclick="jump()">跳过剧情...</button>
+
+            <div id="name"></div>
+            <div id="dialog"></div>
+
+            <div id="functions">
+                <button onclick=save()>存档</button>
+                <button onclick="location='../save.html'">读档</button>
+                <button onclick="location='../achievement.html'">成就</button>
+                <button onclick="location='../../index.html'">主页</button>
+            </div>
+
+        <div id="option">
+            <div class="blank"></div>
+                <div id="buttons">
+                    <button onclick="location='../第1章/1-1.html'">第一章 被遗弃的城市</button>
+                </div>
+            <div class="blank"></div>
+        </div>
+    </div>
+</body>
+</html>

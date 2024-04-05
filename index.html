@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/index-css.css"/>
+        <link rel="stylesheet" href="../css/game-css.css">
+        <script src="./js/index-js.js"></script>
+        <script src="./js/game-js.js"></script>
+        <style type="text/css">
+            body{
+                background-image: url("./images/图标/bg.png");
+                background-size: cover;
+            }
+            .retry button{
+                background: url("") no-repeat;
+                border: 0ch;
+                color: white;
+            }
+            .retry button:hover{
+                color: #6cf;
+            }
+        </style>
+        <title>主页</title>
+    </head>
+
+    <body onload="Initlly()" onclick="msplay()">
+        <audio id="bgm" src="BGM/迦勒底.mp3" autoplay="autoplay" loop preload="auto"></audio>
+        <div class="retry">
+            <button type="button" onclick="Clear()"><h1>初始化游戏</h1></button>
+        </div>
+        <div id="option_area">
+            <button type="button" onclick="location='html/index/login.html'"><h1>登录</h1></button>
+            <button type="button" onclick="location='html/index/register.html'"><h1>注册</h1></button>
+            <button type="button" onclick="IsLogin_1()"><h1>开始游戏</h1></button>
+            <button type="button" onclick="IsLogin_2()"><h1>继续游戏</h1></button>
+            <button type="button" onclick="IsLogin_3()"><h1>成就</h1></button>
+            <button type="button" onclick="location='us/aboutus.html'"><h1>关于我们</h1></button>
+        </div>
+    </body>
+</html>

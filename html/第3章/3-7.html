@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'这是Oshiro先生的日记，最后一篇的时间已经是十几年前了:',
+'"从今天起山庄正式关门。"',
+'"Charlotte组织员工爬山，作为告别远足。我们大多数人都没上过山顶。"',
+'"这看起来是个合适的收尾，但是当分别时刻来临时，我还是忍不住，最后一次环顾四周，"',
+'"我让他们继续前进，不要等我。"',
+'"我很快会赶上他们，"',
+'"在我再一次检查一切是否井然有序之后……"',
+'"我无法相信我在这里的时光结束了，我现在要去做什么？"',
+'"也许我将在这里留上最后一晚与山庄好好告个别。"',
+'看样子Oshiro先生经历了很多。'
+]
+let c=['日记','日记','日记','日记','日记','日记','日记','日记','日记','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character1",'../../images/人物/ma/ma_sad.png',0);
+        changeCharacter(present,9,"character1",'../../images/人物/ma/ma_sad.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第三章 第7节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景/internel2_day.jpg");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/Morgan.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+        
+        <embed src="../../images/图标/letter.png" id="paper1"  width="45%">
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第3章/3-8.html'">继续</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

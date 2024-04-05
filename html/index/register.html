@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../css/index-css.css"/>
+        <style type="text/css">
+            body{
+                background-image: url("../../images/图标/big_icon.png");
+                background-size: cover;
+            }
+            #register{
+                text-align: center;
+            }
+            #name,#password{
+                width: 60%;
+                margin-top: 10px;
+            }
+            #register button,#regisbutton{
+                background-color: rgba(20, 20, 20, 0.5);
+                width: 50%;
+                height: 50px;
+                font-size: 30px;
+                color: rgba(200, 200, 200);
+                border-radius: 10px;
+                font-family: 华文新魏;
+                margin: 20px auto;
+            }
+            #register button:hover,#regisbutton:hover{
+                background-color: rgba(132, 112, 255, 0.5);
+                transition-duration: 300ms;
+            }
+            #back_to_index h2 a,#toindex a{
+                text-decoration: none;
+            }
+            #back_to_index h2 a:link,#toindex a:link{
+                color: white;
+            }
+            #back_to_index h2 a:visited,#toindex a:visited{
+                color: white;
+            }
+            #back_to_index h2 a:hover,#toindex a:hover{
+                color: #6cf;
+            }
+            #toindex{
+                font-size: 30px;
+                font-family: 华文新魏;
+            }
+        </style>
+        <script src="../../js/index-js.js"></script>
+        <script src="../../js/game-js.js"></script>
+        <title>注册</title>
+    </head>
+
+    <body onload="Initlly()" onclick="msplay()">
+        <audio id="bgm" src="../../BGM/熟闻的旋律.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="back_to_index">
+            <h2><a href="../../index.html">回到主页</a></h2>
+        </div>
+        <div id="register">
+                <p>名字：<input type="name" id="name" placeholder="请输入用户名（不超过12个字符）"></p>
+			    <p>密码：<input type="password" id="password" placeholder="请输入密码（不少于6个字符）"></p>
+                <p><input id='regisbutton' type="button" value="注册" onclick="register()"></p>
+                <p id="toindex"><a href="login.html">去往登录页面</a></p>
+            </form>
+        </div>
+    </body>
+</html>

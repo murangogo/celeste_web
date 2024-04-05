@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'爬上这座山叫“顺便”？',
+'天啊，你知道我为了爬上来费了多少力气吗！',
+'是啊，大家都觉得我是奇怪的人，奇怪之人必有傲人之处。',
+'我的山庄确实比较冷清，但你不能否认我对它的爱。',
+'没人规定一切必须是完美的。',
+'我觉得你也是，另一个你也挺好的，我很感谢她否定了我的山庄，噢，这是实话，只是我有点伤心罢了。',
+'我战胜了我自己，也成为了我自己。',
+'我想，这就是意义。',
+'我们都不完美，你觉得呢？'
+]
+let c=['Madeline','Madeline','Oshiro','Oshiro','Oshiro','Oshiro','Madeline','Madeline','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,6,"character1",'../../images/人物/ma/ma_normal.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第七章 第7节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/top3.png");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/君之祈愿.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_surprise.png" id="character1"  width="45%">
+        <embed src="../../images/人物/os/os_smile3.png" id="character2"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='7-9.html'">献给身处阴郁里的人们</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

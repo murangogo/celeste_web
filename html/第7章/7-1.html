@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'真够恐怖的，我们竟然能到这里。',
+'也许你是对的，这次登山确实太危险了……',
+'……',
+'不，是我错了。我们能爬上这座山。',
+'我会保护你的……还有，我相信你。',
+'谢谢你。',
+'加油，最后的冲刺！',
+'我们已经离得很近了。我们一定会成功的！',
+'我……',
+'怎么了？',
+'我只是……我很抱歉，是我连累了你。我应该信任你的。',
+'那不是你的错。我也尝试过抛下你。其实，我这一辈子都在试着抛下你。',
+'我很抱歉。我本该早点去了解你。但我太过骄傲，太过顽固，或者有别的什么心结。',
+'我们浪费了太多时间和精力……还好，我们终于把事情说开了。',
+'嗯！我很高兴这座山带你走了出来，我也能把这个心结放下了。',
+'如果我们能一起合力登上这座山，我们就无所不能。',
+'要是我们失败了怎么办？',
+'那我也能接受，只要我们努力尝试过了，我就满足了。',
+'我可能理解其中的缘由了，一起加油吧。',
+]
+let c=['Dark','Madeline','Dark','Dark','Dark','Madeline','Madeline','Madeline','Dark','Madeline','Dark','Madeline','Madeline','Dark','Madeline','Madeline','Dark','Madeline','Dark']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,0,"character1",'../../images/人物/ma/ma_sad.png',0);
+        changeCharacter(present,1,"character1",'../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,5,"character1",'../../images/人物/ma/ma_normal.png',1);
+        changeCharacter(present,9,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,14,"character1",'../../images/人物/ma/ma_normal.png',1);
+
+        changeCharacter(present,4,"character4",'../../images/人物/dm/ma2_normal5.png',1);
+        changeCharacter(present,9,"character4",'../../images/人物/dm/ma2_normal.png',1);
+        changeCharacter(present,14,"character4",'../../images/人物/dm/ma2_normal5.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第七章 第1节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/banboo_night.jpg");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/不屈的觉悟.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_surprise.png" id="character4"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../../minigames/tower.html'">登顶</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

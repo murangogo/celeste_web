@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'欢迎回来!',
+'Madeline！你们登顶了吗？',
+'对，我们登顶了。真不可思议！',
+'那里很美吧？',
+'我之前认为这样是不值得的，但确实不虚此行!',
+'来吧，吃块蛋糕!'
+]
+let c=['老婆婆','Theo','Madeline','老婆婆','Dark','Oshiro']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,2,"character1",'../../images/人物/ma/ma_normal.png',1);
+        changeCharacter(present,4,"character1",'../../images/人物/ma/ma_normal.png',0);
+
+        changeCharacter(present,1,"character2",'../../images/人物/gr/gr_nomal2.png',0);
+        changeCharacter(present,3,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        changeCharacter(present,5,"character2",'../../images/人物/os/os_smile3.png',1);
+
+        changeCharacter(present,0,"character3",'../../images/人物/th/th_smile2.png',0);
+        changeCharacter(present,1,"character3",'../../images/人物/th/th_smile2.png',1);
+        changeCharacter(present,3,"character3",'../../images/人物/th/th_smile2.png',0);
+
+        changeCharacter(present,0,"character5",'../../images/人物/dm/ma2_redface.png',0);
+        changeCharacter(present,4,"character5",'../../images/人物/dm/ma2_redface.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第七章 第4节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/woodenhouse2.jpg");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/君之祈愿.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_smile.png" id="character1"  width="45%">
+        <embed src="../../images/人物/gr/gr_nomal2.png" id="character2"  width="45%">
+        <embed src="../../images/人物/th/th_smile2.png" id="character3"  width="45%">
+        <embed src="../../images/人物/th/th_smile2.png" id="character5"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../achievements/8.html'">结局：觥筹交错</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

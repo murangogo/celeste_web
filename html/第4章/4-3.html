@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'糟糕……缆车居然追尾了。',
+'麻烦了。',
+'麻烦大了。',
+'Madeline，你冷吗？',
+'是的……我只是……',
+'不，我不冷。',
+'我无法呼吸。',
+'你怎么会觉得乘坐这破东西是个好主意？',
+'嘿，别怪我。',
+'听我的。',
+'我爷爷教了我一个处理这种情况的诀窍。',
+'闭上眼睛。',
+'试着让你的意念集中，想像成具象的物体。',
+'平稳缓慢地呼吸，吸气，吐气。'
+]
+let c=['Madeline','Theo','Madeline','Theo','Madeline','Madeline','Madeline','Madeline','Theo','Theo','Theo','Theo','Theo','Theo']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,5,"character1",'../../images/人物/ma/ma_sad.png',1);
+
+        changeCharacter(present,4,"character3",'../../images/人物/th/th_hand_normal2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第四章 第3节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/lanche_dark.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/emergency.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_angry.png" id="character1"  width="45%">
+        <embed src="../../images/人物/th/th_hand_surprise.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../../minigames/cut.html'">学习控制</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

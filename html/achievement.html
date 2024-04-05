@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="../css/game-css.css">
+    <script src='../js/game-js.js'></script>
+    <script src="../js/index-js.js"></script>
+    <style type="text/css">
+        #wrapper {
+            background: url("../images/成就/achievebg.png");
+            background-size: cover;
+        }
+
+        body {
+            position: relative;
+            bottom: 3vh;
+        }
+
+        #achievement_area {
+            width: 80vw;
+            height: 70vh;
+            margin: 0vh 10vw;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .achievement {
+            text-align: center;
+            border: 5px black;
+        }
+
+        .achievement img {
+            margin: auto;
+            width: 18vw;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .achievement p {
+            color: rgb(251, 215, 159);
+            font-family: 楷体;
+            font-size:30px;
+            text-shadow: 1px 1px 3px rgb(52, 41, 0);
+        }
+    </style>
+    <script>
+        t = ['梦境初见', '焕然一新', '控制恐惧', '倾诉衷肠', '错误之旅', '自我和解', '登顶·塞莱斯特', '大团圆']
+        r = ['../images/成就/mengjingchujian.png', '../images/成就/huanranyixin.png', '../images/成就/kongzhikongju.png',
+            '../images/成就/qingsuzhongchang.png', '../images/成就/cuowuzhilu.png', '../images/成就/ziwohejie.png',
+            '../images/成就/dengding.png', '../images/成就/datuanyuan.png']
+
+        function check() {
+            achievements = document.getElementById('achievement_area').children
+            arr = JSON.parse(localStorage['achievement'])
+            for (let i = 0; i < 8; i++) {
+                if (arr[i] == 1) {
+                    achievements[i].children[0].src = r[i]
+                    achievements[i].children[1].innerHTML = t[i]
+                }
+            }
+        }
+
+        function real() {
+            let relbtn = document.getElementById('real')
+            achievements = document.getElementById('achievement_area').children
+            if (localStorage['real'] == 1) {
+                for (let i = 0; i < 8; i++) {
+                    achievements[i].children[0].src = r[i]
+                    achievements[i].children[1].innerHTML = t[i]
+                }
+                localStorage['real'] = 0
+                relbtn.innerHTML = '恢复'
+            } else {
+                for (let i = 0; i < 8; i++) {
+                    if (arr[i] == 0) {
+                        achievements[i].children[0].src = '../images/成就/locked.png'
+                        achievements[i].children[1].innerHTML = '???'
+                    }
+                }
+                localStorage['real'] = 1
+                relbtn.innerHTML = '查看'
+            }
+        }
+    </script>
+    <title>acheivements</title>
+</head>
+
+<body onpageshow="check()" onclick="msplay()">
+    <audio id="bgm" src="../BGM/Altoria Caster.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+    <div id="wrapper">
+
+        <div  id='return_clear'>
+            <button type="return_clear_button"  onclick="toindex2()">主页</button>
+            <button type="return_clear_button"  onclick="history.back()">返回</button>
+            <button type="return_clear_button"  id="real" onclick="real()">查看</button>
+            <button type="return_clear_button"  onclick="promtshow()">初始化</button>
+        </div>
+
+        <div id="save">
+            <div></div>
+            <div id='prompt_text'>您是否确定清空所有存档？</div>
+            <div id='prompt_button'>
+                <button type="button" onclick='init();promtdown();promtshowupdate()'>确定</button>
+                <button type="button" onclick='promtdown()'>取消</button>
+            </div>
+        </div>
+
+        <div id="update">
+            <div></div>
+            <div id='prompt_button'>
+                <button type="return_clear_button"  onclick="location='achievement.html'">返回</button>
+            </div>
+        </div>
+
+        <div id="achievement_area">
+            <div class="achievement" id='a1'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a2'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a3'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a4'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a5'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a6'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a7'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+            <div class="achievement" id='a8'>
+                <img src='../images/成就/locked.png'>
+                <p>???</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

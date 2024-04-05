@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'我掉下来了……',
+'结束了。',
+'或许这样最好。',
+'这山是无情的。',
+'是啊，我懂了。',
+'我不够强壮，爬不了你这座破山。',
+'如果你乐意，可以再嘲笑我一次。',
+'HA HA HA',
+'我不是真的让你笑……',
+'有时候你必须懂得适时放手。',
+'你会挺过去的。',
+'你知道吗，在爬出这个山洞的时候，我已经思考了很久……',
+'这事我已经放下了。',
+'那个另一个我是对的，这事我做不到。',
+'我也只能……回家去过我忧郁的生活，永远活在悲剧之中。',
+'你显然还没放下。',
+'闭嘴，我知道。',
+'我不想放弃。',
+'但不管我多努力尝试，她都能在任何地方搞破坏。',
+'好多孩子都来这儿爬这座山，最后都放弃了。',
+'可惜你掉下来了，我当时都有点相信你能爬上去了。',
+'为什么我这么特殊？',
+'我从没见过对自己那么愤怒的人。',
+'说实话，我还以为你登顶就是为了给自己找不痛快呢，HA HA HA',
+'我不知道说什么好……',
+'你说的这个女孩，听起来她在拖你后腿。',
+'跟她谈谈吧。',
+'弄明白她为什么那么害怕。',
+'你觉得她……害怕？',
+'我可从没那么想过。',
+'别浪费咱俩的时间了，直接问她。',
+'我不知道该怎么找到她……',
+'她就是另一个你，如果你去找她，要不了多久就能找到。',
+'所以，你听说过这山的力量。',
+'我当然知道，我在这里生活。',
+'我提醒过你。',
+'你需要学学表达技巧。',
+'对人们来说，一窥真相是件好事。',
+'即使大多数人没法接受自己看到的真相。',
+'总有一天你会准备好的，到那时候你再回来就是了。',
+'……',
+'不！这次我一定要坚持到底，不能再逃跑了。',
+'我看也是，祝你好运。',
+'你怎么能忍受这里的生活？一直面对这种局面不会难以忍受吗？',
+'是啊，你永远也无法真正地适应。但那能让我警醒，我就喜欢这一点。',
+'但这山的冲击……太强烈了。',
+'当然，它可不会跟你兜圈子。',
+'塞莱斯特山有治愈人心的力量，治愈的第一步就是解决问题，不会轻松的。',
+'确实如此……'
+]
+let c=['Madeline','Madeline','老婆婆','老婆婆','Madeline','Madeline','Madeline','老婆婆','Madeline','老婆婆','老婆婆','Madeline','Madeline','Madeline','Madeline','老婆婆','Madeline','Madeline','Madeline','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','老婆婆','Madeline','Madeline','老婆婆','Madeline','老婆婆','Madeline','老婆婆','老婆婆','Madeline','老婆婆','老婆婆','老婆婆','Madeline','Madeline','老婆婆','Madeline','老婆婆','Madeline','老婆婆','老婆婆','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,8,"character1",'../../images/人物/ma/ma_angry.png',1);
+        changeCharacter(present,21,"character1",'../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,24,"character1",'../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,29,"character1",'../../images/人物/ma/ma_question.png',1);
+
+        changeCharacter(present,7,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        changeCharacter(present,10,"character2",'../../images/人物/gr/gr_normal.png',1);
+        changeCharacter(present,47,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第10节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/shangu1.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/The Sun in the Abyss.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+        <embed src="../../images/人物/gr/gr_normal.png" id="character2"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第6章/6-11.html'">寻找Dark Madeline</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

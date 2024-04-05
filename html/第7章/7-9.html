@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'做你想做的人',
+'这件事 没有时间的限制 只要愿意 什么时候都可以开始',
+'你能从现在开始改变 也可以一成不变',
+'你能活出精彩的自己 也可能搞得一团糟',
+'希望 你能活出精彩的自己',
+'希望 你能见识到令你惊艳的故事',
+'希望 你能体验未曾体验过的情感',
+'希望 你能遇见一些想法不同的人',
+'希望 你为自己的人生感到骄傲',
+'如果你发现自己还没有做到',
+'希望 你有勇气——',
+'重头再来'
+]
+let c=['寄语','寄语','寄语','寄语','寄语','寄语','寄语','寄语','寄语','寄语','寄语','寄语']
+let present = 0;
+function run()
+    {
+        dialog_last(t,c,present);
+        present++
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog_last').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第七章 第9节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/top3.png");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit_last();run()" >
+    <audio id="bgm" src="../../BGM/君之祈愿.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump_last()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog_last"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../CG/end1.html'">结局：破晓黎明</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../css/game-css.css">
+    <script src='../../../js/game-js.js'></script>
+<script>
+let t = [
+'你呢？你为什么来这座山？',
+'我就是四处走走，跟平常一样。',
+'我是在西雅图开始做这份新工作的。',
+'我本以为自己终于弄明白了我这辈子该做什么……',
+'但我讨厌这份工作。',
+'一周后我就辞职了，坐长途汽车去了加拿大。',
+'我就是有股冲动……',
+'想把自己丢到个谁都不知道的地方。',
+'现在我说出来了，才意识到这话听起来有多奇怪。',
+'听起来你压力挺大啊。',
+'也不是，每个人都对我很宽容。',
+'不过我猜，是我自己把太多压力压在了自己身上。',
+'其他人总是认为我拿自己跟Alex比较，但我保证根本不是这个问题。',
+'我只不过是担心永远也弄不明白自己该去哪儿。',
+'你说过你想去谁都不知道的地方。',
+'也许你应该接受现状。',
+'可能吧。',
+'但是，就像飞蛾扑火，就像虫子扎进深坑……',
+'即使付出代价，也总要追寻点什么。'
+]
+let c=['Madeline','Theo','Theo','Theo','Theo','Theo','Theo','Theo','Theo','Madeline','Theo','Theo','Theo','Theo','Madeline','Madeline','Theo','Theo','Theo']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,4,"character3",'../../../images/人物/th/th_hand_think3.png',1);
+        changeCharacter(present,11,"character3",'../../../images/人物/th/th_hand_normal2.png',1);
+        changeCharacter(present,17,"character3",'../../../images/人物/th/th_normal2.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第5节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../../images/背景重制版/fire.png");background-size: cover;}
+    </style>
+</head>
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../../BGM/牵绊.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../../images/人物/ma/ma_question.png" id="character1"  width="45%">
+        <embed src="../../../images/人物/th/th_normal.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../../save.html'">读档</button>
+                    <button onclick="location='../../achievement.html'">成就</button>
+                    <button onclick="location='../../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='choice1.html';g1init(0,'6-5.html')">Theo释怀</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

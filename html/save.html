@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="../css/game-css.css">
+    <script src='../js/game-js.js'></script>
+    <script src="../js/index-js.js"></script>
+    <style type="text/css">
+        #wrapper {
+            background: url("../images/成就/read.png");
+            background-size: cover;
+        }
+
+        #storage {
+            box-shadow: 3vh 3vw 3vw rgba(0, 0, 0, .5);
+            border-radius: 1vw;
+
+            height: 400px;
+            width: 700px;
+            position: absolute;
+            margin: 25vh 27vw;
+
+            text-align:center;
+        }
+
+        #storage a {     
+            font-size: 5vh;
+            color: rgb(255, 212, 153);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgb(52, 41, 0);
+            font-family: 楷体;
+        }
+
+        body {     
+            position: relative;
+            bottom: 3vh;
+        }
+
+
+    </style>
+    <script>
+        function promtshow2() {
+            let prom = document.getElementById("save2")
+            prom.style.opacity = 1;
+            prom.style.zIndex = 10000;
+        }
+
+
+        function promtdown2() {
+            let prom = document.getElementById("save2")
+            prom.style.opacity = 0;
+            prom.style.zIndex = -10000;
+        }
+
+        function storageclear() {
+            let arr = JSON.parse(localStorage['archive'])
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = 0
+            }
+            localStorage['archive'] = JSON.stringify(arr)
+        }
+    </script>
+    <title>存档</title>
+</head>
+
+<body onclick="msplay()" onpageshow="load()">
+    <audio id="bgm" src="../BGM/Altoria Caster.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+    <div id="wrapper">
+        <div  id='return_clear'>
+            <button type="return_clear_button"  onclick="toindex2()">主页</button>
+            <button type="return_clear_button"  onclick="history.back()">返回</button>
+            <button type="return_clear_button"  onclick="promtshow2()">清空</button>
+        </div>
+
+        <div id="save2">
+            <div></div>
+            <div id='prompt_text'>您是否确定清空所有存档？</div>
+            <div id='prompt_button'>
+                <button type="button" onclick='storageclear();promtdown2();location="./save.html"'>确定</button>
+                <button type="button" onclick='promtdown2()'>取消</button>
+            </div>
+        </div>
+
+        <div id="storage"></div>
+    </div>
+</body>
+
+</html>

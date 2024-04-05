@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../css/game-css.css">
+    <script src='../../../js/game-js.js'></script>
+<script>
+let t = [
+'你能理解我的感受吗？',
+'我知道它糟糕透顶，可那是种什么样的感觉？',
+'Alex也深受其害，我是真心想了解。',
+'或者，我们也可以聊点别的。',
+'……',
+'就像是，我沉入大洋底部。',
+'任何方向都看不到东西。',
+'就像是幽闭恐惧症，但同时却觉得无遮无挡。',
+'……',
+'我还记得正常的感觉。',
+'但现在那种感觉找不着了，不管我怎么试都找不回来。',
+'话又说回来，我可能一直都是这么糟糕的状态。',
+'只需一些小小的事情就能把情绪引出来。',
+'我一定是有什么地方不对劲。',
+'不管发生什么事情，我敢肯定，那不是你的错。',
+'我猜，我当时认为自己能……',
+'我不知道。',
+'我就这么在这个深渊里飘飘沉沉，随意游动。',
+'希望自己能找到点什么。',
+'我就是为这个原因才来到这儿。',
+'可我自己摆脱不了。',
+'我是真得一直在跟自己作斗争。',
+'也许这全是毫无意义的。',
+'Madeline，你刚刚救了我的命。',
+'这可不是毫无意义的。',
+'对哦……',
+'听着：',
+'人不应该根据自己的痛楚而选择道路，而是应该在选择的道路上背负痛楚。',
+'你有点焦虑，但你是个很好的人。',
+'我认为你只不过是想摆脱自己陷入的僵局而已。',
+'这个理由就足以让人爬这山了！',
+'可能吧。',
+'那个……谢谢你这么说。',
+'至于那个一直在给你惹麻烦的另一个你，或许天性如此。',
+'所以你觉得我永远没法摆脱她了？',
+'这个嘛，她不是也没法摆脱你么。',
+'这话一点帮助也没有。',
+'所以你希望摧毁另一个你？',
+'那样不会伤害到你自己吗？',
+'如果我不做点什么，她会一直欺负我。',
+'她说她会保护我，但显然那是假话。',
+'也许她觉得她在保护你。',
+'可能她的保护机制有点……扭曲？',
+'害，谁知道呢？',
+'她总是想控制我。',
+'我讨厌这样。',
+'也许你可以试着反过来控制她。',
+'嗯嗯，谢谢你的帮助。'
+]
+let c=['Madeline','Theo','Theo','Theo','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Theo','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Theo','Theo','Madeline','Theo','Theo','Theo','Theo','Theo','Madeline','Madeline','Theo','Madeline','Theo','Madeline','Theo','Theo','Madeline','Madeline','Theo','Theo','Madeline','Madeline','Madeline','Theo','Madeline']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,6,"character1",'../../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,15,"character1",'../../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,17,"character1",'../../../images/人物/ma/ma_sad.png',1);
+        changeCharacter(present,24,"character1",'../../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,32,"character1",'../../../images/人物/ma/ma_normal.png',1);
+        changeCharacter(present,35,"character1",'../../../images/人物/ma/ma_question.png',1);
+        changeCharacter(present,47,"character1",'../../../images/人物/ma/ma_smile.png',1);
+
+        changeCharacter(present,14,"character3",'../../../images/人物/th/th_normal.png',1);
+        changeCharacter(present,27,"character3",'../../../images/人物/th/th_hand_think4.png',1);
+        changeCharacter(present,32,"character3",'../../../images/人物/th/th_hand_normal3.png',1);
+        changeCharacter(present,35,"character3",'../../../images/人物/th/th_think.png',1);
+        changeCharacter(present,38,"character3",'../../../images/人物/th/th_hand_sad3.png',1);
+        changeCharacter(present,42,"character3",'../../../images/人物/th/th_hand_normal3.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第3节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../../images/背景重制版/fire.png");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../../BGM/牵绊.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../../images/人物/ma/ma_question.png" id="character1"  width="45%">
+        <embed src="../../../images/人物/th/th_hand_sad3.png" id="character3"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../../save.html'">读档</button>
+                    <button onclick="location='../../achievement.html'">成就</button>
+                    <button onclick="location='../../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button type="button" onclick="location='choice2.html';g2init(0,'6-3.html')">继续</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

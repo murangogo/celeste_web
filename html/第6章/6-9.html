@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'我曾经如此的接近山顶……',
+'然而一切都破灭了!',
+'她为什么不肯放过我？',
+'我恨她。',
+'……',
+'但她就是另一个我。',
+'我永远也无法摆脱她。',
+'也许她是对的。',
+'我没本事爬这山。',
+'噢，又见面了。',
+'是你啊。',
+'怎样，登山顺利吗？',
+'HA HA HA，我在山谷见过太多这样低迷的年轻人了。',
+]
+let c=['Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','Madeline','老婆婆','Madeline','老婆婆','老婆婆']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,9,"character3",'../../images/人物/th/th_hand_surpris.png',0);
+
+        changeCharacter(present,0,"character2",'../../images/人物/th/th_hand_surpris.png',0);
+        changeCharacter(present,9,"character2",'../../images/人物/gr/gr_normal.png',1);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第9节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/shangu1.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/驱散乌云.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_sad.png" id="character1"  width="45%">
+        <embed src="../../images/人物/th/th_hand_surpris.png" id="character3"  width="45%">
+        <embed src="../../images/人物/gr/gr_normal.png" id="character2"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第6章/6-10.html'">我掉下来了……</button>
+                        <button onclick="location='../第7章/7-5.html'">别讲大道理。</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

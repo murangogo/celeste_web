@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/game-css.css">
+    <script src='../../js/game-js.js'></script>
+<script>
+let t = [
+'我们是怎么做到的！',
+'如果照这样爬下去，或许我们能登顶！',
+'你还想爬这山？我们为什么还要回到那上面去呢？',
+'看到你俩好好相处，真叫人高兴。',
+'嗯，多谢你之前让我醒悟了。',
+'别客气。偶尔能帮上点忙，我也挺高兴的。',
+'Madeline！！！',
+'Theo？！',
+'你没事啦？我跑下来帮忙来着，可是你看起来好像没事。',
+'谢谢你，Theo。说实话，也许我正需要摔那么一下。',
+'这不就是你提到过的另一个你？她就像可爱的暗黑风少女Madeline！',
+'你好。',
+'你是对的，Theo。我不该害怕她。',
+'如果我和她齐心协力，我觉得我们能爬到最后。',
+'那太好了。',
+'不……等等……我可没答应这个，你说过我们应该先商量一下。',
+'你说得对，我知道你被吓到了。',
+'可我们都知道，这是我们想要达成的事。我们必须得试最后一次。',
+'耶！你能行！',
+'我不知道……',
+'我们就差那么一点，然后我们，呃，就掉下来了……这山把我们分开了。',
+'是啊，就是那么回事。',
+'不过我们一定能度过这个难关，我们肯定能行。',
+'这想法不错。',
+'不过我提醒你们，爬上去依旧不轻松。',
+'但我很惊讶，你们能一路跌跌撞撞爬这么远。我估计，只要你们合作就能成。',
+'好的……我会试试的。'
+]
+let c=['Madeline','Madeline','Dark','老婆婆','Madeline','老婆婆','？？？','Madeline','Theo','Madeline','Theo','Dark','Madeline','Madeline','Theo','Dark','Madeline','Madeline','Theo','Dark','Dark','Madeline','Madeline','老婆婆','老婆婆','老婆婆','Dark']
+let present = 0;
+function run()
+    {
+        dialog(t,c,present);
+        present++
+        changeCharacter(present,11,"character1",'../../images/人物/ma/ma_normal.png',0);
+        changeCharacter(present,13,"character1",'../../images/人物/ma/ma_normal.png',1);
+
+        changeCharacter(present,4,"character4",'../../images/人物/dm/ma2_redface.png',0);
+        changeCharacter(present,15,"character4",'../../images/人物/dm/ma2_redface.png',1);
+        changeCharacter(present,18,"character4",'../../images/人物/dm/ma2_redface.png',0);
+        changeCharacter(present,19,"character4",'../../images/人物/dm/ma2_normal.png',1);
+        changeCharacter(present,23,"character4",'../../images/人物/dm/ma2_normal.png',0);
+        changeCharacter(present,26,"character4",'../../images/人物/dm/ma2_normal.png',1);
+
+        changeCharacter(present,0,"character2",'../../images/人物/gr/gr_nomal2.png',0);
+        changeCharacter(present,4,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        changeCharacter(present,7,"character2",'../../images/人物/gr/gr_nomal2.png',0);
+        changeCharacter(present,23,"character2",'../../images/人物/gr/gr_nomal2.png',1);
+        changeCharacter(present,26,"character2",'../../images/人物/gr/gr_nomal2.png',0);
+
+        changeCharacter(present,0,"character3",'../../images/人物/th/th_smile2.png',0);
+        changeCharacter(present,7,"character3",'../../images/人物/th/th_smile2.png',1);
+        changeCharacter(present,15,"character3",'../../images/人物/th/th_smile2.png',0);
+        changeCharacter(present,18,"character3",'../../images/人物/th/th_normal2.png',1);
+        changeCharacter(present,19,"character3",'../../images/人物/th/th_normal2.png',0);
+
+        changeCharacter(present,0,"character5",'../../images/人物/dm/fan_ma2_redface.png',0);
+        changeCharacter(present,11,"character5",'../../images/人物/dm/fan_ma2_redface.png',1);
+        changeCharacter(present,13,"character5",'../../images/人物/dm/fan_ma2_redface.png',0);
+        if (present >2*t.length) 
+            {
+                document.getElementById('dialog').style.opacity = 0;
+                document.getElementById('name').style.opacity = 0;
+                document.getElementById('option').style.opacity = 1;
+            }
+        if(document.getElementById('option').style.opacity == 0)
+            {document.getElementById('buttons').style.pointerEvents="none";}
+        else {document.getElementById('buttons').style.pointerEvents="auto";}
+    }
+</script>
+    <title>第六章 第13节</title>
+    <style type="text/css">
+        #wrapper {background: url("../../images/背景重制版/shangu1.jpg");background-size: cover;}
+    </style>
+</head>
+
+<body onclick="run();msplay()" onpageshow="chapInit();run()" >
+    <audio id="bgm" src="../../BGM/outbreak.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+        <div id="save">
+            <div></div>
+            <div>存档成功！</div>
+            <div id='save_button'>
+                <button type="button" onclick='promtdown()'>确定</button>
+            </div>
+        </div>
+    
+        <embed src="../../images/人物/ma/ma_normal.png" id="character1"  width="45%">
+        <embed src="../../images/人物/dm/ma2_normal5.png" id="character4"  width="45%">
+        <embed src="../../images/人物/gr/gr_nomal2.png" id="character2"  width="45%">
+        <embed src="../../images/人物/th/th_smile2.png" id="character3"  width="45%">
+        <embed src="../../images/人物/dm/ma2_redface.png" id="character5"  width="45%">
+
+        <div id="wrapper">
+    
+                <button id='jump' onclick="jump()">跳过剧情...</button>
+    
+                <div id="name"></div>
+                <div id="dialog"></div>
+    
+                <div id="functions">
+                    <button onclick=save()>存档</button>
+                    <button onclick="location='../save.html'">读档</button>
+                    <button onclick="location='../achievement.html'">成就</button>
+                    <button onclick="location='../../index.html'">主页</button>
+                </div>
+    
+            <div id="option">
+                <div class="blank"></div>
+                    <div id="buttons">
+                        <button onclick="location='../第7章/7-1.html'">第七章 山顶</button>
+                    </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+    </body>
+    </html>

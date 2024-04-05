@@ -1,0 +1,46 @@
+#portrait{
+    position: absolute;
+    width: 400px;
+    height: auto;
+    left: 0;
+    top: 200px;
+}
+
+#back_to_us h2 a{
+    text-decoration: none;
+}
+#back_to_us h2 a:link{
+    color: white;
+}
+#back_to_us h2 a:visited{
+    color: white;
+}
+#back_to_us h2 a:hover{
+    color: #6cf;
+}
+
+#box{
+    position: absolute;
+    width: 600px;
+    right: 300px;
+    top: 50px;
+    color: rgb(240,255,240);
+    line-height: 2em;
+    text-indent: 2em;
+}
+
+#hobby{
+    position: absolute;
+    top: 350px;
+}
+
+#box img{
+    margin-left: 100px;
+}
+
+#doge{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: black;
+}

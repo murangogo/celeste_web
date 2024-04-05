@@ -1,0 +1,62 @@
+body
+{
+    background-image: url("xu_images/backgro.png");
+    background-size: cover;
+}
+#photo_intro
+{
+
+    background-color: rgba(218, 229, 240, 0.9);
+    margin-top: 3%;
+    margin-left: 50px;
+    width: 700px;
+    height: 450px;
+    padding: 20px;
+
+    border-style:dashed;
+    border-width: 10px;
+    border-color: rgba(7, 147, 235, 0.68);
+}
+#jobs
+{
+    background-color: rgba(218, 229, 240, 0.9);
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 400px;
+    height: 480px;
+    padding: 20px;
+
+    border-style:dashed;
+    border-width: 10px;
+    border-color: rgba(7, 147, 235, 0.68);
+    position: absolute; top: 10px; right: 150px;
+}
+#photo
+{
+    margin-top: 10px;
+    width: 330px;
+    height: 430px;
+}
+#content1
+{
+    font-size:x-large;
+    font-family: 楷体;
+    line-height: 50px;
+    font-weight: 200px;
+    color: rgb(58, 80, 147);
+    margin-right: 10px;
+    position: absolute; top: 150px; left: 450px;
+}
+#content2
+{
+    font-size:x-large;
+    font-family: 楷体;
+    line-height: 50px;
+    font-weight: 200px;
+    color: rgb(58, 80, 147);
+    margin-right: 10px;
+}
+#all
+{
+    margin: auto;
+}
